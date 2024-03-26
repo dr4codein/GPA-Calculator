@@ -34,10 +34,6 @@ This project doesn't require any installation steps since it's hosted on Replit.
 
 Contributions to this project are welcome! If you have any ideas for improvements or new features, feel free to fork the repository, make your changes, and submit a pull request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## About the Author
 
 This project is maintained by Dharanidaran. Feel free to reach out if you have any questions or suggestions.
