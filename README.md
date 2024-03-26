@@ -9,8 +9,7 @@ The GPA Calculator is a simple tool designed to assist students in calculating t
 - Easy-to-use interface
 - Ability to input multiple courses and grades
 - Real-time GPA calculation
-- Supports standard letter grades (A, B, C, D, F)
-- Provides instant feedback on GPA
+- Supports standard letter grades (O,A+,A,B+,B,C)
 
 ## Technologies Used
 
@@ -22,8 +21,8 @@ The GPA Calculator is a simple tool designed to assist students in calculating t
 To use the GPA Calculator:
 
 1. Click on the "Run" button to start the program.
-2. Input the name of each course and its corresponding grade. Grades should be entered in the standard letter grade format (A, B, C, D, F).
-3. Press Enter after entering each course and grade.
+2. Input the name of each course and its corresponding grade. Grades should be entered in the standard letter grade format (O,A+,A,B+,B,C)
+3. Press Calculate button after entering each course and grade.
 4. Once all courses and grades are entered, the GPA will be calculated and displayed.
 
 ## Installation
