@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEE 3rd Semester GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('file:///C:/Users/murth/Downloads/BG.jpg'); /* Add your background image path */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            margin: 50px auto;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        h3 {
+            font-size: 12px; /* Adjust font size as needed */
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+            margin-bottom: 10px;
+        }
+        select:focus {
+            border-color: #007bff;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: red; /* Change text color to red */
+            font-size: 14px; /* Reduce font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EEE 3rd Semester</h1>
+        <h2>GPA Calculator</h2>
+        <div style="text-align: center;">
+            <h3>Developed by Dharanidaran, II Year EEE (Engg)</h3>
+            <a href="https://www.instagram.com/r_d_tamilan/" target="_blank" style="color: red;">
+                <img src="file:///C:/Users/murth/Downloads/insta.jpg" width="2" height="2"> Instagram: @r_d_tamilan
+            </a>
+        </div>
+        <form id="gpa-form">
+            {% for course, credits in courses.items() %}
+                <label for="{{ course }}">{{ course }}</label>
+                <select name="{{ course }}">
+                    {% for grade, value in grading_scale.items() %}
+                        <option value="{{ grade }}">{{ grade }}</option>
+                    {% endfor %}
+                </select>
+            {% endfor %}
+            <button type="submit">Calculate GPA</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <footer>
+        Developed by Dharanidaran, II Year EEE (Engg)
+    </footer>
+    <script>
+        document.getElementById('gpa-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/calculate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerText = `Overall GPA: ${data}`;
+            });
+        });
+    </script>
+</body>
+</html>
